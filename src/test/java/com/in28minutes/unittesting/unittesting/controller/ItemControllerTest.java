@@ -40,7 +40,7 @@ public class ItemControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().json("{\"id\": 1,\"name\":\"Ball\",\"price\":10,\"quantity\":100}"))
 				.andReturn();
-		JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+		JSONAssert.assertEquals("test", result.getResponse().getContentAsString(), false);
 		
 	}
 
@@ -57,7 +57,7 @@ public class ItemControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().json("{id:2,name:Item2,price:10}"))
 				.andReturn();
-		JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+		JSONAssert.assertEquals("test", result.getResponse().getContentAsString(), false);
 		
 	}
 	
@@ -76,7 +76,7 @@ public class ItemControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().json("[{id:3,name:Item3,price:20}, {id:2,name:Item2,price:10}]"))
 				.andReturn();
-		JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+		JSONAssert.assertEquals("test", result.getResponse().getContentAsString(), false);
 		
 	}
 
@@ -94,7 +94,7 @@ public class ItemControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().json("[]"))
 				.andReturn();
-		JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+		JSONAssert.assertEquals("test", result.getResponse().getContentAsString(), false);
 		
 	}
 
