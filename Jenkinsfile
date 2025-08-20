@@ -7,13 +7,7 @@ pipeline {
     }
    
     stages {
-        stage('Checkout') {
-            steps {
-                // Pull code from Git repository
-                git url: 'git@github.com:v1gn35h7/spring-unit-testing-with-junit-and-mockito.git', branch: 'master'
-            }
-        }
-
+       
         stage('Build & Test') {
             steps {
                 sh 'mvn clean test'
