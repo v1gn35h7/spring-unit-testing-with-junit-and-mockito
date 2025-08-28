@@ -24,10 +24,10 @@ pipeline {
                 echo 'Registering the metadata'
                 echo 'Another echo to make the pipeline a bit more complex'
                 registerBuildArtifactMetadata(
-                    name: "artifacts-ninja-QA-dev-testing-0002",
-                    version: "1.0.02",
+                    name: "artifacts-ninja-QA-dev-testing-0003",
+                    version: "1.0.03",
                     type: "docker",
-                    url: "http://localhost:0002",
+                    url: "http://localhost:0003",
                     digest: "6f637064707039346163663237383938",
                     label: "qa-ninja"
                 )
