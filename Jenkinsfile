@@ -1,56 +1,53 @@
 pipeline {
     agent any
 
-    environment {
-        // You can set environment variables here
-        MAVEN_OPTS = "-Dmaven.test.failure.ignore=true"
-    }
-
-      tools {
-        maven 'Maven 3'  // Define your Maven installation name from Jenkins Global Tool Configuration
-    }
-
-   
     stages {
+        stage('Build') {
+            stages {
+                stage('Compile') {
+                    steps {
+                        echo 'Compiling...'
+                        sleep 10
+                    }
+                }
+                stage('Package') {
+                    steps {
+                        echo 'Packaging...'
+                        sleep 5
+                    }
+                }
+            }
+        }
 
-       stage('Registering build artifact') {
+        stage('Registering build artifact') {
             steps {
                 echo 'Registering the metadata'
                 echo 'Another echo to make the pipeline a bit more complex'
                 registerBuildArtifactMetadata(
-                    name: "test-artifact-vignesh",
-                    version: "1.0.0",
+                    name: "artifacts-ninja-QA-dev-testing-0001",
+                    version: "1.0.01",
                     type: "docker",
-                    url: "http://localhost:1111",
+                    url: "http://localhost:0001",
                     digest: "6f637064707039346163663237383938",
-                    label: "prod"
+                    label: "qa-ninja"
                 )
             }
         }
-        
-        stage('Build & Test') {
+
+        stage('Test') {
             steps {
-                sh 'mvn clean test'
+                echo 'Running Unit Tests...'
+                sleep 10
+                echo 'Running Integration Tests...'
+                sleep 5
             }
         }
 
-        stage('Publish Test Results') {
+        stage('Deploy') {
             steps {
-                junit 'target/surefire-reports/*.xml'
+                echo 'Deploying...'
+                sleep 5
             }
-        }
-        
-      
-    }
-    
-
-
-    post {
-        always {
-            echo 'Pipeline completed.'
-        }
-        failure {
-            echo 'Build or tests failed!'
         }
     }
 }
