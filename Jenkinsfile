@@ -24,8 +24,8 @@ pipeline {
                 echo 'Registering the metadata'
                 echo 'Another echo to make the pipeline a bit more complex'
                 registerBuildArtifactMetadata(
-                    name: "artifacts-ninja-VPC-testing-0003",
-                    version: "1.0.03",
+                    name: "artifacts-ninja-VPC-testing-0004",
+                    version: "1.0.04",
                     type: "docker",
                     url: "https://your-url-here.com",
                     digest: "6f637064707039346163663237383938",
