@@ -1,19 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage('Stage 0') {
-    steps {
-        withEnv(["MY_ENV=VALUE"]) {
-            registerBuildArtifactMetadata(
-                name: "my-artifact-stage-testing-002",
-                version: "0.0.2",
-                type: "docker",
-                url: "http://your-url-here.com",
-                digest: "6u637064707039346163663930",
-                label: "pre-prod"
-            )
+       stage('Registering build artifact') {
+            steps {
+                echo 'Registering the metadata'
+                echo 'Another echo to make the pipeline a bit more complex'
+                registerBuildArtifactMetadata(
+                    name: "build-artifacts-testing-AK-01-VPC-0002",
+                    version: "1.0.02",
+                    type: "docker",
+                    url: "http://localhost-test-preprod:0002",
+                    digest: "6f637064707039346163663237383938",
+                    label: "vpc-ninja"
+                )
+            }
         }
-    }
-    }
+
     }
 }
