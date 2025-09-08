@@ -5,8 +5,8 @@ pipeline {
     steps {
         withEnv(["MY_ENV=VALUE"]) {
             registerBuildArtifactMetadata(
-                name: "my-artifact-stage-test-001",
-                version: "0.0.1",
+                name: "my-artifact-stage-testing-002",
+                version: "0.0.2",
                 type: "docker",
                 url: "http://your-url-here.com",
                 digest: "6u637064707039346163663930",
